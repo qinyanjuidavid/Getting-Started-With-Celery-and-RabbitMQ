@@ -29,3 +29,12 @@
 - To start celery beat `celery -A src beat -l INFO`
 
 - To utilize the database scheduler we use the command `celery -A src beat -l INFO --scheduler django_celery_beat.schedulers.DatabaseScheduler`
+
+## Exploring Results Backends
+
+- Results Backends allows us to save the results of previous backend
+- Install the django-celery-results
+
+## Caching
+
+- Run `python manage.py createcachetable --dry-run` or `python manage.py createcachetable` to build the cache database
