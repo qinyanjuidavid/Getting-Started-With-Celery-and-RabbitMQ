@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+<!--title-->
+{%block title%} Reviews {%endblock%}
+<!--Content-->
+{%block content%}
+<div class="container-fluid">
+  <div class="row no-guitar">
+    <div class="col-md-6">
+      <div class="login d-flex align-center py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-8 col-md-8 mx-auto">
+              <p class="h4 mb-4 font-weight bold">Write a review</p>
+              <form action="." method="post">
+                {% csrf_token %} {{form.as_p}}
+                <button class="btn btn-primary btn-block" type="submit">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+</div>
+
+{%endblock%}
