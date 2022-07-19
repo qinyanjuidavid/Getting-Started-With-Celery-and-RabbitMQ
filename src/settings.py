@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1.apps.App1Config',
     'app2.apps.App2Config',
+    'app3.apps.App3Config',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,19 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'davidkinyanjui052@gmail.com'
 EMAIL_HOST_PASSWORD = 'xzgfkbvvutjadcui'
 DEFAULT_FROM_EMAIL = 'davidkinyanjui052@gmail.com'
+
+
+CELERY_BEAT_SCHEDULE = {
+    'scheduled-task': {
+        'task': 'app1.tasks.add',
+        'schedule': 5.0,  # 10 seconds
+        'args': (16, 16),
+
+    },
+    'scheduled-task-2': {
+        'task': 'app2.tasks.send_congrats_mail',
+        'schedule': 5.0,  # 10 seconds
+        'args': ("Coder", "davidkinyanjui052@gmail.com"),
+    }
+
+}
