@@ -157,6 +157,16 @@ CACHES = {
 
 CELERY_BROKER_URL = 'redis://:p0f6221f9d0d21c6c0454df70e4237dc0cf2405064359a32342f0fb2251611979@ec2-52-200-115-8.compute-1.amazonaws.com:8630'
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://:p0f6221f9d0d21c6c0454df70e4237dc0cf2405064359a32342f0fb2251611979@ec2-52-200-115-8.compute-1.amazonaws.com:8630",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
 """ crontab() Execute every minute.
 crontab(minute=0, hour=0) Execute daily at midnight.
 crontab(minute=0, hour='*/3') Execute every three hours: midnight, 3am, 6am, 9am, noon, 3pm, 6pm, 9pm.
@@ -174,3 +184,5 @@ crontab(0, 0, day_of_month='1-7,15-21') Execute on the first and third weeks of 
 crontab(0, 0, day_of_month='11', month_of_year='5') Execute on the eleventh of May every year.
 crontab(0, 0, month_of_year='*/3') Execute every day on the first month of every quarter.
 """
+
+# heroku config:set DISABLE_COLLECTSTATIC=1
