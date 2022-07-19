@@ -145,7 +145,7 @@ CELERY_BEAT_SCHEDULE = {
     }
 
 }
-CELERY_RESULT_BACKEND = 'default'
+CELERY_RESULT_BACKEND = 'django-db'
 
 # Cache
 CACHES = {
@@ -155,6 +155,7 @@ CACHES = {
     }
 }
 
+CELERY_BROKER_URL = 'redis://:p0f6221f9d0d21c6c0454df70e4237dc0cf2405064359a32342f0fb2251611979@ec2-52-200-115-8.compute-1.amazonaws.com:8630'
 
 """ crontab() Execute every minute.
 crontab(minute=0, hour=0) Execute daily at midnight.
